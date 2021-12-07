@@ -9,7 +9,7 @@ const userSlice = createSlice({
   initialState: [],
   reducers: {
     addBook: (state, action) => {
-      [...current(state), { ...action.payload }];
+      [...state, { ...action.payload }];
     },
     /* deleteUser: (state, action) => {
       state.users.filter((user) => user.id !== action.payload.id);
