@@ -6,7 +6,6 @@ const BookList = (props) => {
   return (
     <div>
       <h1>Awesome Books</h1>
-      <ul>hello</ul>
       <ul>
         {bookList.map((book) => (
           <Book key={book.id} book={book} />
