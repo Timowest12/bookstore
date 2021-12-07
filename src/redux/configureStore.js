@@ -1,8 +1,15 @@
-import { configureStore } from '@reduxjs/toolkit';
-import userSlice from './books/books';
+import { createStore, combineReducers, applyMiddleware } from 'redux';// eslint-disable-line
+import logger from 'redux-logger';
+import booksReducer from './books/books';
 
-export default configureStore({
-  reducer: {
-    books: userSlice,
-  },
+const reducer = combineReducers({
+  booksReducer,
+  // additional reducers could be added here
 });
+
+const store = createStore(
+  reducer,
+  applyMiddleware(logger),
+);
+
+export default store;
