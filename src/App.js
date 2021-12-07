@@ -7,6 +7,7 @@ import {
   Link,
 } from 'react-router-dom';
 import BookList from './components/BookList';
+import Categories from './components/Categories';
 
 const demoList = [{
   id: 1, title: 'book1', author: 'author1',
@@ -31,7 +32,7 @@ function App() {
       </header>
       <Routes>
         <Route path="/" element={<BookList bookList={demoList} />} />
-        {/* <Route path="/categories" element={<CategoriesPage />} /> */}
+        <Route path="/categories" element={<Categories />} />
       </Routes>
     </Router>
   );
