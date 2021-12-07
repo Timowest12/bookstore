@@ -8,7 +8,8 @@ import { v4 as uuidv4 } from 'uuid';
 
 
 const BookList = () => {
-    const [booksstate, setbooksstate] = useState([]);
+    const [bookstoupdate, setbookstoupdate]
+     = useState([]);
     const dispatch = useDispatch();
   
   const submitForm = (e) => {
@@ -19,21 +20,20 @@ const BookList = () => {
     title.value = '';
     author.value = '';
     dispatch(addBook(newbook));
-    setbooksstate('hello')
+    setbookstoupdate([...bookstoupdate,newbook]);
   }
   const bookList = useSelector((state) => state.books)
   
   
   return (
     <div>
-        {console.log(bookList)}
         
       <h1>Awesome Books</h1>
       
       <ul>
 
-        {bookList.map((book) => (
-          console.log(book)
+        {bookstoupdate.map((book) => (
+          <Book key={book.key} book={book} />
         ))}
       </ul>
       <form id="add-book-form" onSubmit={(e) => submitForm(e)}>

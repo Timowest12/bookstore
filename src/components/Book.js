@@ -1,10 +1,10 @@
 /* eslint-disable */
-import React from 'react';
+import React from "react";
 
-const Book = (props) => {
+const Book = props => {
   const { book } = props;
   return (
-    <li>
+    <li id={book.key}>
       <span>{` ${book.title} `}</span>
       <span>{` ${book.author} `}</span>
       <button type="button">Remove book</button>
