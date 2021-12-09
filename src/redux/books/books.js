@@ -39,7 +39,7 @@ export const getBooksList = async (dispatch) => {
     .then((data) => Object.entries(data).forEach((elem) => {
     let elemdata = elem[1][0]
     console.log(elemdata)
-    dispatch();
+    
     }));
 };
 
