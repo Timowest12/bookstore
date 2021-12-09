@@ -2,8 +2,9 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
 import Book from './Book';
-import { addBook } from '../redux/books/books';
+import { addBook, postBook, getBooksList } from '../redux/books/books';
 
+getBooksList();
 const BookList = () => {
   const dispatch = useDispatch();
 
@@ -11,10 +12,15 @@ const BookList = () => {
     e.preventDefault();
     const title = e.target.querySelector('#title');
     const author = e.target.querySelector('#author');
-    const newbook = { id: uuidv4(), title: title.value, author: author.value };
+    const newbook = {
+      item_id: uuidv4(), title: title.value, author: author.value, category: 'thriller',
+    };
     title.value = '';
     author.value = '';
     dispatch(addBook(newbook));
+    postBook(newbook);
+    getBooksList();
+    console.log(newbook);
   };
   const bookList = useSelector((state) => state.booksReducer);
   // console.log(bookList)
