@@ -38,8 +38,8 @@ export const getBooksList = async (dispatch) => {
     .then((response) => response.json())
     .then((data) => Object.entries(data).forEach((elem) => {
     let elemdata = elem[1][0]
-    console.log(elemdata.title)
-    //dispatch(addBook(elemdata));
+    console.log(elemdata)
+    dispatch();
     }));
 };
 
