@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 const ADD_BOOK = 'bookStore/books/ADD_BOOK';
 const REMOVE_BOOK = 'bookStore/books/REMOVE_BOOK';
 const GET_BOOKS = 'bookStore/books/GET_BOOKS';
@@ -31,10 +33,14 @@ const reducer = (state = initialState, action) => {
   }
 };
 
-export const getBooksList = () => {
+export const getBooksList = async (dispatch) => {
   fetch(APIURL)
     .then((response) => response.json())
-    .then((data) => console.log(data));
+    .then((data) => Object.entries(data).forEach((elem) => {
+    let elemdata = elem[1][0]
+    console.log(elemdata.title)
+    dispatch(addBook(elemdata));
+    }));
 };
 
 export const postBook = (newBook) => {
