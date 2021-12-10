@@ -3,15 +3,14 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
 import Book from './Book';
-import { addBook, postBook, getBooksList, getBooks } from '../redux/books/books';
+import { addBook, getBooks } from '../redux/books/books';
 import { useEffect } from 'react';
 
 
 const BookList = () => {
   const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(getBooks())
-  }, [])
+  
+
   
 
   const submitForm = (e) => {
@@ -24,11 +23,13 @@ const BookList = () => {
     title.value = '';
     author.value = '';
     dispatch(addBook(newbook));
-    postBook(newbook);
-    getBooksList();
+    //addBook(newbook);
+    //getBooksList();
     console.log(newbook);
   };
+  
   const bookList = useSelector((state) => state.booksReducer);
+  useEffect(() => { dispatch(getBooks()); }, [dispatch]);
   // console.log(bookList)
 
   return (
@@ -40,7 +41,7 @@ const BookList = () => {
 
         {bookList.map((book) => (
 
-          <Book key={book.id} book={book} />
+          <Book key={book.item_id} book={book} />
         ))}
       </ul>
       <form id="add-book-form" onSubmit={(e) => submitForm(e)}>

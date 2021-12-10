@@ -1,9 +1,9 @@
 /* eslint-disable */
+import * as apiCalls from '../../apifetch';
 
 const ADD_BOOK = 'bookStore/books/ADD_BOOK';
 const REMOVE_BOOK = 'bookStore/books/REMOVE_BOOK';
 const GET_BOOKS = 'bookStore/books/GET_BOOKS';
-const APIURL = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/G94NWY3g7VbzmV6vhi81/books';
 
 const initialState = [];
 
@@ -27,24 +27,27 @@ const initialState = [];
 // that user input. You are taking that data and posting it to the api, as i understand you need to dispatch
 // it to our state
 export const addBook = (payload) => async (dispatch) => {
-  await apiCalls.addBookToApi(payload);
+  await apiCalls.postBook(payload);
   dispatch({
     type: ADD_BOOK,
     payload, // This means actually payload: payload(argument)
   });
 };
 // You can implement this one according to addBook
-export const removeBook = (payload) => ({
-  type: REMOVE_BOOK,
-  payload,
-});
+export const removeBook = (id) => async ( dispatch) => {
+   await apiCalls.deleteBook(id);
+   dispatch({
+    type: ADD_BOOK,
+    payload:id, // This means actually payload: payload(argument)
+  });
+};
 // This one is the most complicated action for me I struggled a lot on this but the basic idea is
 // When a payload come this function as parameter you need to also send that data to the API.
 // But the thing is we need to get data from api so we will just show the values from api
 // So we will not input any payload here
 // We will just get the data from api and dispatch it in our reducer.
 export const getBooks = () => async (dispatch) => {
-  const dataFromApi = await getBooksList();
+  const dataFromApi = await apiCalls.getBooksList();
   // As i said we dont get any payload from the user. But we need to send it to the redux so in
   // this case we need to determine our payload which we will send it to the reducer
   const payload = Object.entries(dataFromApi).map(([key, value]) => {
@@ -72,41 +75,6 @@ const reducer = (state = initialState, action) => {
   }
 };
 
-// Make API Calls
 
-// Get ALL Books
-export const getBooksList = async () => {
-  const request = await fetch(APIURL);
-  return request;
-};
-
-//Post A Book
-export const postBook = (newBook) => {
-  fetch(APIURL, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    // body: JSON.stringify(newBook), This Should Be Match The Pattern That Microverse Gave
-    // Change your_... as your object key names
-    body: JSON.stringify({
-      item_id: newBook.your_id,
-      title: newBook.your_title,
-      category: newBook.your_category
-    })
-  })
-}
-
-export const deleteBook =  async (id) => {
-  await fetch(`${APIURL}/${id}`, {
-    method: 'DELETE',
-    body: JSON.stringify({
-      item_id: id,
-    }),
-    headers: {
-      'Content-type': 'application/json; charset=UTF-8',
-    },
-  });
-};
 
 export default reducer;
