@@ -1,12 +1,18 @@
+/* eslint-disable */
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
 import Book from './Book';
-import { addBook, postBook, getBooksList } from '../redux/books/books';
+import { addBook, postBook, getBooksList, getBooks } from '../redux/books/books';
+import { useEffect } from 'react';
 
-getBooksList();
+
 const BookList = () => {
   const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getBooks())
+  }, [])
+  
 
   const submitForm = (e) => {
     e.preventDefault();
