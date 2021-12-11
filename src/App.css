@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Mochiy+Pop+One&family=Roboto+Slab:wght@300;400;500;600;900&family=Source+Code+Pro:wght@400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Mochiy+Pop+One&family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700&family=Roboto+Slab:wght@300;400;500;600;900&family=Source+Code+Pro:wght@400;500;600;700&display=swap');
+
 body {
   background-color: #fafafa;
   font-family: 'Roboto Slab', serif;
@@ -50,27 +51,31 @@ nav {
 }
 
 .book {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   background-color: white;
   margin: 10px 20px;
   padding: 10px 10px;
 }
-.booktxtblock{
+
+.booktxtblock {
   display: flex;
   flex-direction: column;
 }
-.bookbuttonswrapper{
+
+.bookbuttonswrapper {
   display: flex;
   flex-direction: row;
 }
-.bookbuttons{
-  margin:15px 0px;
-  width: 100px;
-  background-color: #FFFFFF;
+
+.bookbuttons {
+  background-color: #fff;
   border: none;
   width: 4.563rem;
   height: 1.188rem;
   margin: 0.188rem 0.938rem 0.125rem 0;
-  font-family: RobotoSlab;
+  font-family: 'Roboto Slab', serif;
   font-size: 0.875rem;
   font-weight: 300;
   font-stretch: normal;
@@ -79,29 +84,28 @@ nav {
   letter-spacing: normal;
   color: #4386bf;
 }
-.book{
-display: flex;
-flex-direction: row;
-justify-content: space-between;
-}
-.infoside{
+
+.infoside {
   display: flex;
   flex-direction: row;
   align-items: center;
 }
-.infoside > *{
+
+.infoside > * {
   margin: 0 25px;
-  
 }
-.vertline{
+
+.vertline {
   width: 1px;
   height: 100%;
   background-color: black;
 }
-.progblock{
+
+.progblock {
   display: flex;
   flex-direction: row;
 }
+
 .circle-wrap {
   width: 50px;
   height: 50px;
@@ -109,21 +113,24 @@ justify-content: space-between;
   border: 4px solid #0893ff;
   margin-right: 20px;
 }
+
 .circle-wrap .circle .mask {
-  clip: rect(0px, 150px, 150px, 75px);
+  clip: rect(0, 150px, 150px, 75px);
 }
-.chapterbutton{
+
+.chapterbutton {
   background-color: #0893ff;
   color: white;
-  border:none;
-  padding:5px;
+  border: none;
+  padding: 5px;
 }
-.category{
+
+.category {
   width: 3.063rem;
   height: 1.125rem;
   margin: 0 2.438rem 0 0;
   opacity: 0.5;
-  font-family: Montserrat;
+  font-family: 'Montserrat', sans-serif;
   font-size: 0.875rem;
   font-weight: bold;
   font-stretch: normal;
@@ -131,11 +138,12 @@ justify-content: space-between;
   line-height: normal;
   letter-spacing: normal;
 }
-.title{
+
+.title {
   width: 12.313rem;
   height: 1.813rem;
   margin: 0.188rem 20.188rem 0 0;
-  font-family: RobotoSlab;
+  font-family: 'Roboto Slab', serif;
   font-size: 1.375rem;
   font-weight: bold;
   font-stretch: normal;
@@ -143,11 +151,12 @@ justify-content: space-between;
   line-height: normal;
   letter-spacing: -0.2px;
 }
-.author{
+
+.author {
   width: 6.688rem;
   height: 1.188rem;
   margin: 0.25rem 0 0;
-  font-family: RobotoSlab;
+  font-family: 'Roboto Slab', serif;
   font-size: 0.875rem;
   font-weight: 300;
   font-stretch: normal;
@@ -156,11 +165,12 @@ justify-content: space-between;
   letter-spacing: normal;
   color: #4386bf;
 }
-.addbooktxt{
+
+.addbooktxt {
   width: 10.875rem;
   height: 1.5rem;
   margin: 1.813rem 32.75rem 1.188rem 0;
-  font-family: Montserrat;
+  font-family: 'Montserrat', sans-serif;
   font-size: 1.25rem;
   font-weight: bold;
   font-stretch: normal;
@@ -169,7 +179,8 @@ justify-content: space-between;
   letter-spacing: -0.18px;
   color: #888;
 }
-#category{
+
+#category {
   width: 17.813rem;
   height: 2.813rem;
   margin: 1.188rem 2.125rem 0;
@@ -178,7 +189,8 @@ justify-content: space-between;
   border: solid 1px #e8e8e8;
   background-color: #fff;
 }
-#title{
+
+#title {
   width: 41.5rem;
   height: 2.813rem;
   margin: 1.188rem 2.125rem 0 0;
@@ -187,7 +199,8 @@ justify-content: space-between;
   border: solid 1px #e8e8e8;
   background-color: #fff;
 }
-.addbookbtn{
+
+.addbookbtn {
   width: 11.5rem;
   height: 2.813rem;
   margin: 1.188rem 0 0 2.125rem;
