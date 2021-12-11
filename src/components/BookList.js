@@ -29,13 +29,15 @@ const BookList = () => {
 
   return (
     <div>
-      <h1>Awesome Books</h1>
-      <ul>
+
+      <ul className="booksul">
         {bookList.map((book) => (
           <Book key={book.item_id} book={book} />
         ))}
       </ul>
       <form id="add-book-form" onSubmit={(e) => submitForm(e)}>
+        <h3>ADD NEW BOOK</h3>
+        <hr />
         <input id="title" placeholder="Title" />
         <input id="author" placeholder="Author" />
         <button type="submit">Add Book</button>
