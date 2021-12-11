@@ -36,11 +36,11 @@ const BookList = () => {
         ))}
       </ul>
       <form id="add-book-form" onSubmit={(e) => submitForm(e)}>
-        <h3>ADD NEW BOOK</h3>
         <hr />
-        <input id="title" placeholder="Title" />
-        <input id="author" placeholder="Author" />
-        <button type="submit">Add Book</button>
+        <h3 className="addbooktxt">ADD NEW BOOK</h3>
+        <input id="title" placeholder="Book title" />
+        <input id="category" placeholder="category" />
+        <button className="addbookbtn" type="submit">Add Book</button>
       </form>
     </div>
   );
